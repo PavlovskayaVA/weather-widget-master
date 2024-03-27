@@ -1,0 +1,28 @@
+.wrapperInput {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.input {
+    border-radius: 15px;
+    border: none;
+    height: 21px;
+    width: 220px;
+    padding: 12px;
+    margin-right: 12px;
+    background-color: rgb(26, 25, 25);
+    color:  rgb(228, 228, 228);
+    outline:none;
+}
+
+input::placeholder {
+    color:  rgb(196, 194, 194);
+}
+
+.img {
+    position: absolute;
+    top: 8px;
+    left: 205px;
+    cursor: pointer;
+}
