@@ -15,3 +15,16 @@
     width: 150px;
     text-align: center;
 }
+
+.cardNow {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 450px;
+    border-radius: 15px;
+    background-color: rgb(26, 25, 25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
