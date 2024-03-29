@@ -4,19 +4,20 @@ import { useState } from 'react';
 
 
 export function Header({onClick}) {
-  const [value, setValue] = useState(true)
+  const [valueChangeWeather, setValueChangeWeather] = useState(true)
 
   function showWeatherNow(event) {
     onClick(event.target.value)
-    setValue(false)
-    value ? setValue(false) : setValue(true)
+    setValueChangeWeather(false)
+    valueChangeWeather ? setValueChangeWeather(false) : setValueChangeWeather(true)
  }
+
 
   return (
     <>
         <header className={style.headerInner}>
-          <span>
-              <div className={style.text} onClick={showWeatherNow}>{value ? 'Прогноз погоды на текущий момент' : 'Прогноз погоды на 5 дней'}</div>
+          <span className={style.headerWrapper}>
+              <span className={style.text} onClick={showWeatherNow}>{valueChangeWeather ? 'Прогноз погоды на 5 дней' : 'Прогноз погоды на текущий момент'}</span>
           </span>
       </header>
     </>

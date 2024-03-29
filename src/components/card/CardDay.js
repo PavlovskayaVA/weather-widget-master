@@ -11,7 +11,7 @@ export function CardDay(props) {
    
   return (
     <div className={style.card}>
-        <h3 className={style.text}>{weekdayName}</h3>
+        <h1 className={style.text}>{weekdayName}</h1>
         <h3 className={style.text}>{dayNow}</h3>
         <h3 className={style.text}>{dayName}</h3>
         <h3 className={style.text}>{Math.round(props.day.main.temp)}°</h3>

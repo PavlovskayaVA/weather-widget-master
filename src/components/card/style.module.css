@@ -1,7 +1,7 @@
 .card {
     margin: 0 auto;
     margin-bottom: 20px;
-    width: 150px;
+    width: 250px;
     height: 250px;
     border-radius: 15px;
     background-color: rgb(26, 25, 25);
@@ -16,15 +16,47 @@
     text-align: center;
 }
 
-.cardNow {
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.cardWrapper {
     margin: 0 auto;
     margin-bottom: 20px;
     width: 350px;
-    height: 450px;
+    height: 500px;
     border-radius: 15px;
     background-color: rgb(26, 25, 25);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.cardNow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.sunTime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sunTime h3 {
+    margin-bottom: 16px;
+}
+
+.sunTime div {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 75px;
+    height: 65px;
 }

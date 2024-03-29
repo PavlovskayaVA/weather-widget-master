@@ -48,6 +48,7 @@ function App() {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
           daysURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API}&units=metric&lang=ru`;
+          nowURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API}&units=metric&lang=ru`;
           getDaysAPI(); 
           getNowAPI();
         },
@@ -75,15 +76,18 @@ function App() {
       }
   }
 
+
   const [name,setName] = useState('');
   const [temp,setTemp] = useState('');
   const [tempFeel,setTempFeel] = useState('');
   const [wind,setWind] = useState('');
   const [weather,setWeather] = useState('');
   const [humidity,setHumidity] = useState('');
+  const [pressure,setPressure] = useState('');
   const [img,setImg] = useState('');
   const [sunrise,setSunrise] = useState('');
   const [sunset,setSunset] = useState('');
+  const [timezone,setTimezone] = useState('');
 
   const API = '710ea7c0101aad29b2f38a1e787cd436';
 
@@ -107,11 +111,13 @@ function App() {
         setTemp(data.main.temp)
         setTempFeel(data.main.feels_like)
         setHumidity(data.main.humidity)
+        setPressure(data.main.pressure)
         setWind(data.wind.speed)
         setWeather(data.weather[0].description)
         setImg(data.weather[0].icon)
         setSunrise(data.sys.sunrise)
         setSunset(data.sys.sunset)
+        setTimezone(data.timezone)
       })
   }
 
@@ -120,8 +126,8 @@ function App() {
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        const daysData = data.list.filter(reading => reading.dt_txt.includes("12:00:00"));
-        const eveningsData = data.list.filter(reading => reading.dt_txt.includes("00:00:00"));
+        const daysData = data.list.filter(reading => reading.dt_txt.includes("09:00:00"));
+        const eveningsData = data.list.filter(reading => reading.dt_txt.includes("21:00:00"));
         setStateDay({days: daysData})
         setStateNEvening({evenings: eveningsData})
       })
@@ -135,7 +141,7 @@ function App() {
           <div className='wrapperHeader'>
             <Input onChange={changeInputValue} onClick={showInputValue}/>
             <Header onClick={showWeatherNow}/>
-            <Geolocation onClick={tabuGeolocation}/>
+            <Geolocation onClick={tabuGeolocation}  name={name}/>
           </div>
           <div className="cards">
             <div className='cardsItem'>
@@ -154,10 +160,10 @@ function App() {
           <div className='wrapperHeader'>
             <Input onChange={changeInputValue} onClick={showInputValue}/>
             <Header onClick={showWeatherNow}/>
-            <Geolocation onClick={tabuGeolocation}/>
+            <Geolocation onClick={tabuGeolocation} name={name}/>
           </div>
           <div className="cards">
-              <Card name={name} temp={temp} tempFeel={tempFeel} weather={weather} humidity={humidity} wind={wind} img={img} sunrise={sunrise} sunset={sunset}/>
+              <Card name={name} temp={temp} tempFeel={tempFeel} weather={weather} humidity={humidity} wind={wind} img={img} sunrise={sunrise} sunset={sunset} timezone={timezone} pressure={pressure}/>
           </div>
           <Footer/>
       </div>

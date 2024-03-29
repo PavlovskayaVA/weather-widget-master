@@ -9,10 +9,12 @@
 .wrapperInput {
     display: flex;
     margin-left: 60px;
+    align-items: center;
 }
 
 .img {
     cursor: pointer;
+    margin-left: 12px;
 }
 
 .text {
