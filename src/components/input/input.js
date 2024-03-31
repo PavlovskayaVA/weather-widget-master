@@ -10,6 +10,7 @@ export function Input({onChange, onClick}) {
 
      function showInputValue(event) {
         onClick(event.target.value)
+
      }
     
     return(

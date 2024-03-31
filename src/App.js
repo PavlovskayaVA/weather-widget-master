@@ -76,7 +76,6 @@ function App() {
       }
   }
 
-
   const [name,setName] = useState('');
   const [temp,setTemp] = useState('');
   const [tempFeel,setTempFeel] = useState('');
@@ -93,7 +92,6 @@ function App() {
 
   let daysURL = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&lang=ru&units=metric&APPID=${API}`
   let nowURL = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&lang=ru&units=metric&APPID=${API}`
-  //https://api.openweathermap.org/data/2.5/weather?q=Тайланд&lang=ru&units=metric&APPID=710ea7c0101aad29b2f38a1e787cd436
 
   const [stateDay, setStateDay] = useState({
     days: [],
@@ -119,6 +117,7 @@ function App() {
         setSunset(data.sys.sunset)
         setTimezone(data.timezone)
       })
+      .catch( error => alert('По вашему запросу ничего не найдено. Ввведите корректное значение.'))
   }
 
   function getDaysAPI() {
@@ -131,6 +130,7 @@ function App() {
         setStateDay({days: daysData})
         setStateNEvening({evenings: eveningsData})
       })
+      .catch( error => console.log('По вашему запросу ничего не найдено. Ввведите корректное значение.'))
   }
 
   useEffect(() => {getGeolocation()}, []);
